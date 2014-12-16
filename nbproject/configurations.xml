@@ -4,6 +4,10 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>src/MSG/Filter.hpp</itemPath>
+      <itemPath>src/MSG/Message.hpp</itemPath>
+      <itemPath>src/MSG/Messenger.hpp</itemPath>
+      <itemPath>src/MSG/Queue.hpp</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -12,6 +16,10 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>src/MSG/Filter.cpp</itemPath>
+      <itemPath>src/MSG/Message.cpp</itemPath>
+      <itemPath>src/MSG/Messenger.cpp</itemPath>
+      <itemPath>src/MSG/Queue.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -42,6 +50,22 @@
         <archiverTool>
         </archiverTool>
       </compileType>
+      <item path="src/MSG/Filter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/MSG/Filter.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/MSG/Message.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/MSG/Message.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/MSG/Messenger.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/MSG/Messenger.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/MSG/Queue.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/MSG/Queue.hpp" ex="false" tool="3" flavor2="0">
+      </item>
     </conf>
     <conf name="Release" type="3">
       <toolsSet>
@@ -69,6 +93,22 @@
         <archiverTool>
         </archiverTool>
       </compileType>
+      <item path="src/MSG/Filter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/MSG/Filter.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/MSG/Message.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/MSG/Message.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/MSG/Messenger.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/MSG/Messenger.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/MSG/Queue.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/MSG/Queue.hpp" ex="false" tool="3" flavor2="0">
+      </item>
     </conf>
   </confs>
 </configurationDescriptor>
