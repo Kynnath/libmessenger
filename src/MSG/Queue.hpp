@@ -13,7 +13,7 @@
 
 namespace msg
 {
-  class Queue 
+  class Queue
   {
     std::vector<Message> m_queue;
     int m_front;
@@ -26,7 +26,20 @@ namespace msg
       bool IsEmpty() const;
   };
   
-  typedef Queue* QueueHandle;
+  struct ReadQueue
+    : private Queue
+  {
+    Message GetMessage(){return Queue::GetMessage();}
+    bool IsEmpty() const{return Queue::IsEmpty();}
+  };
+  
+  struct WriteQueue
+    : private Queue
+  {
+    void PushBack(Message message){Queue::PushBack(message);}
+  };
+  
+  typedef ReadQueue* QueueHandle;
 }
 #endif	/* QUEUE_HPP */
 

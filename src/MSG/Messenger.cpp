@@ -16,6 +16,6 @@ namespace msg
   
   QueueHandle Messenger::Register(Filter /*filter*/)
   {
-    return &m_queue;
+    return reinterpret_cast<ReadQueue*>(&m_queue);
   }
 }
