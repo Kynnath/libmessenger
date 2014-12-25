@@ -8,20 +8,24 @@
 #ifndef MESSENGER_HPP
 #define	MESSENGER_HPP
 
+#include <memory>
+#include <queue>
 #include "Filter.hpp"
 #include "Message.hpp"
-#include "Queue.hpp"
+#include "Dequeueer.hpp"
 
 namespace msg
 {
   class Messenger
   {
-    Queue m_queue;
-    
+    using Queue = std::unique_ptr<std::queue<Message>>;
+    using Entry = std::pair<Filter,Queue>;
+    std::vector<Entry> m_queues;
     public:
-      void Post(Message message);
-      QueueHandle Register(Filter filter); 
+      void Post(Filter c_filter, Message c_message); // May throw (basic)
+      Dequeueer Register(Filter c_filter); // May throw (basic)
   };
 }
+
 #endif	/* MESSENGER_HPP */
 

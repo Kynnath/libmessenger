@@ -7,11 +7,15 @@
 
 #ifndef FILTER_HPP
 #define	FILTER_HPP
+
 namespace msg
 {
-  class Filter 
+  struct Filter 
   {
-    public:
+    int m_filter;
+    
+    friend bool operator==(Filter const& lhs, Filter const& rhs) noexcept;
+    friend bool operator<(Filter const& lhs, Filter const& rhs) noexcept;
   };
 }
 

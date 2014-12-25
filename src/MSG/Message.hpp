@@ -16,5 +16,6 @@ namespace msg
     int m_value;
   };
 }
+
 #endif	/* MESSAGE_HPP */
 

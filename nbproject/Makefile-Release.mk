@@ -35,10 +35,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/src/MSG/Dequeueer.o \
 	${OBJECTDIR}/src/MSG/Filter.o \
 	${OBJECTDIR}/src/MSG/Message.o \
-	${OBJECTDIR}/src/MSG/Messenger.o \
-	${OBJECTDIR}/src/MSG/Queue.o
+	${OBJECTDIR}/src/MSG/Messenger.o
 
 
 # C Compiler Flags
@@ -67,25 +67,25 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/liblibmessenger.a: ${OBJECTFILES}
 	${AR} -rv ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/liblibmessenger.a ${OBJECTFILES} 
 	$(RANLIB) ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/liblibmessenger.a
 
+${OBJECTDIR}/src/MSG/Dequeueer.o: src/MSG/Dequeueer.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src/MSG
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -Wall -s -I../libtools/src -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/MSG/Dequeueer.o src/MSG/Dequeueer.cpp
+
 ${OBJECTDIR}/src/MSG/Filter.o: src/MSG/Filter.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/MSG
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -Wall -s -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/MSG/Filter.o src/MSG/Filter.cpp
+	$(COMPILE.cc) -O2 -Wall -s -I../libtools/src -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/MSG/Filter.o src/MSG/Filter.cpp
 
 ${OBJECTDIR}/src/MSG/Message.o: src/MSG/Message.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/MSG
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -Wall -s -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/MSG/Message.o src/MSG/Message.cpp
+	$(COMPILE.cc) -O2 -Wall -s -I../libtools/src -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/MSG/Message.o src/MSG/Message.cpp
 
 ${OBJECTDIR}/src/MSG/Messenger.o: src/MSG/Messenger.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/MSG
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -Wall -s -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/MSG/Messenger.o src/MSG/Messenger.cpp
-
-${OBJECTDIR}/src/MSG/Queue.o: src/MSG/Queue.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/MSG
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -Wall -s -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/MSG/Queue.o src/MSG/Queue.cpp
+	$(COMPILE.cc) -O2 -Wall -s -I../libtools/src -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/MSG/Messenger.o src/MSG/Messenger.cpp
 
 # Subprojects
 .build-subprojects:
