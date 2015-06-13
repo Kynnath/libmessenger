@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   Messenger.hpp
  * Author: JoPe
  *
@@ -8,22 +8,41 @@
 #ifndef MESSENGER_HPP
 #define	MESSENGER_HPP
 
-#include <memory>
+#include <algorithm>
 #include <queue>
-#include "Filter.hpp"
-#include "Message.hpp"
-#include "Dequeueer.hpp"
+#include "DGN/Check.hpp"
 
 namespace msg
 {
+  template <class ...Messages>
   class Messenger
   {
-    using Queue = std::unique_ptr<std::queue<Message>>;
-    using Entry = std::pair<Filter,Queue>;
-    std::vector<Entry> m_queues;
     public:
-      void Post(Filter c_filter, Message c_message); // May throw (basic)
-      Dequeueer Register(Filter c_filter); // May throw (basic)
+      void Register(){}
+      void Post(){}
+      void Deregister(){}
+  };
+
+  template <class Message, class ...Messages>
+  class Messenger<Message, Messages...>
+      : public Messenger<Messages...>
+  {
+    std::vector<std::queue<Message>*> m_queues;
+
+    public:
+      using Messenger<Messages...>::Register;
+      using Messenger<Messages...>::Post;
+      using Messenger<Messages...>::Deregister;
+      void Register(std::queue<Message>& q) { m_queues.push_back(&q); }
+      void Post(Message m) { for (auto & queue : m_queues) { queue->push(m); } }
+      void Deregister(std::queue<Message> const& q)
+      {
+        CHECK(m_queues.size() != 0);
+        auto queue = std::find(m_queues.begin(),m_queues.end(), &q);
+        using std::swap;
+        swap(*queue,m_queues.back());
+        m_queues.pop_back();
+      }
   };
 }
 
